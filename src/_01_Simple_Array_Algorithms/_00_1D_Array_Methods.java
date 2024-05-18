@@ -16,7 +16,7 @@ public class _00_1D_Array_Methods {
     //   of the integers in the array being passed in
     public static double averageIntArray(int[] values) {
 
-        return 0;
+        return sumIntArray(values)/values.length;
     }
 
 
@@ -24,7 +24,10 @@ public class _00_1D_Array_Methods {
     //   array contains the value specified by the second parameter.
     //   It should otherwise return false.
     public static boolean containsIntValue(int[] array, int value) {
-
+    	
+    	for(int i : array) {
+    		
+    	}
         return false;
     }
 
