@@ -30,24 +30,39 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
         // 2. Calculate the cell size.
         cellSize = w/cpr + h/cpr;
         // 3a. Initialize the cell array to the appropriate size.
-        
+        cellArray = new Cell[cpr][cpr];
         
         // 3b. Iterate through the array and initialize each cell.
         //    Don't forget to consider the cell's dimensions when 
         //    passing in the location.
+        
+        for(int i = 0; i < cellArray.length; i++) {
+        	for(int j = 0; j < cellArray[i].length; j++) {
+        		cellArray[i][j] = new Cell(j*cpr,i*cpr,cellSize);
+        	}
+        }
 
     }
 
     public void randomizeCells() {
-        // 4. Iterate through each cell and randomly set each
+    	Random ran = new Random();
+    	// 4. Iterate through each cell and randomly set each
         //    cell's isAlive memeber to true or false
-
+    	for(int i = 0; i < cellArray.length; i++) {
+    		for(int j = 0; j < cellArray[i].length; j++) {
+    			cellArray[i][j].isAlive = ran.nextBoolean(); 			
+    		}
+    	}
         repaint();
     }
 
     public void clearCells() {
         // 5. Iterate through the cells and set them all to dead.
-
+    	for(int i = 0; i < cellArray.length; i++) {
+    		for(int j = 0; j < cellArray[i].length; j++) {
+    			cellArray[i][j].isAlive = false;
+    		}
+    	}
         repaint();
     }
 
@@ -66,7 +81,11 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
     @Override
     public void paintComponent(Graphics g) {
         // 6. Iterate through the cells and draw them all
-
+    	for(int i = 0; i < cellArray.length; i++) {
+    		for(int j = 0; j < cellArray[i].length; j++) {
+    			cellArray[i][j].draw(g);
+    		}
+    	}
 
         // Draw the perimeter of the grid
         g.setColor(Color.BLACK);
@@ -78,9 +97,16 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
         // 7. iterate through cells and fill in the livingNeighbors array
         //    using the getLivingNeighbors method.
         int[][] livingNeighbors = new int[cellsPerRow][cellsPerRow];
-
         // 8. check if each cell should live or die
-
+        for(int i = 0; i < cellArray.length; i++) {
+    		for(int j = 0; j < cellArray[i].length; j++) {
+    			
+    			
+    			// continue this ekin
+    			
+    		}
+    	}
+        
         repaint();
     }
 
